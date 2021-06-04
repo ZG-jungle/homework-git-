@@ -1,0 +1,21 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
+```{r}
+library(tidyverse)
+library(dplyr)
+library(gapminder)
+```
+
+# 1
+```{r}
+gapminder %>%
+  mutate(logpop= log2(gapminder$pop))%>%
+  filter(continent=="Americas", year== 1997)%>%
+  arrange(desc(lifeExp)) ->gapminder1
+
+print(gapminder1, n=25)
+```
+
